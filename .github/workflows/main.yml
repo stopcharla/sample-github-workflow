@@ -31,7 +31,7 @@ jobs:
       id: jest
       run: |
         yarn --frozen-lockfile
-        yarn test
+        echo "::set-env name=TESTOUTPUT::$(yarn test)"
     - name: onFailure
       if: failure()
-      run: echo "hello world"
+      run: echo $TESTOUTPUT
