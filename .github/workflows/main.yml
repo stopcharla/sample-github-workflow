@@ -40,4 +40,5 @@ jobs:
       with:
         path: ./testResults.json
     - name: Echo package.json
+      if: failure()
       run: echo ${{ steps.package.outputs.content }}
