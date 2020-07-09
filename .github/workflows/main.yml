@@ -35,6 +35,7 @@ jobs:
         description="${description//'%'/'%25'}"
         description="${description//$'\n'/'%0A'}"
         description="${description//$'\r'/'%0D'}"
+        echo $description
         echo "::set-output name=testOutput::$description"
       continue-on-error: true
     - name: onFailure
