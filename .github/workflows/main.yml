@@ -31,12 +31,11 @@ jobs:
       id: jest
       run: |
         yarn --frozen-lockfile
-        description= yarn test
-        description="${description//'%'/'%25'}"
-        description="${description//$'\n'/'%0A'}"
-        description="${description//$'\r'/'%0D'}"
-        echo $description
-        echo "::set-output name=testOutput::$description"
-      continue-on-error: true
+        yarn test --json --outputFile=testResults.json
     - name: onFailure
-      run: echo "${{steps.jest.outputs.testOutput}}"
+      id: package
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./testResults.json
+    - name: Echo package.json
+      run: echo ${{ steps.package.outputs.content }}
