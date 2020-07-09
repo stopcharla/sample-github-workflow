@@ -32,6 +32,7 @@ jobs:
       run: |
         yarn --frozen-lockfile
         yarn test --json --outputFile=testResults.json
+      continue-on-error: true
     - name: onFailure
       id: package
       uses: juliangruber/read-file-action@v1
