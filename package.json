@@ -1,0 +1,22 @@
+{
+  "name": "sample-github-workflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stopcharla/sample-github-workflow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stopcharla/sample-github-workflow/issues"
+  },
+  "homepage": "https://github.com/stopcharla/sample-github-workflow#readme",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}
