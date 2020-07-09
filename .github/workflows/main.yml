@@ -33,5 +33,4 @@ jobs:
         yarn --frozen-lockfile
         echo "::set-env name=TESTOUTPUT::$(yarn test)"
     - name: onFailure
-      if: failure()
       run: echo $TESTOUTPUT
