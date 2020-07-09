@@ -28,9 +28,10 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: jest
+      id: jest
       run: |
         yarn --frozen-lockfile
         yarn test
     - name: onFailure
-        if: failure()
+        if: job.steps.jest.status == failure()
         run: echo "hello world"
