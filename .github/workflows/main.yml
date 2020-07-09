@@ -36,5 +36,6 @@ jobs:
         description="${description//$'\n'/'%0A'}"
         description="${description//$'\r'/'%0D'}"
         echo "::set-output name=testOutput::$description"
+      continue-on-error: true
     - name: onFailure
       run: echo "${{steps.jest.outputs.testOutput}}"
