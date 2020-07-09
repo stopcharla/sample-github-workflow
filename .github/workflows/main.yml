@@ -33,5 +33,5 @@ jobs:
         yarn --frozen-lockfile
         yarn test
     - name: onFailure
-        if: job.steps.jest.status == failure()
-        run: echo "hello world"
+      if: job.steps.jest.status == failure()
+      run: echo "hello world"
