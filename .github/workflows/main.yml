@@ -27,13 +27,14 @@ jobs:
         node-version: '10.x'
 
     # Runs a set of commands using the runners shell
-    - name: yarn
-      id: yarn
-      run: |
-        yarn --frozen-lockfile
     - name: jest
       id: jest
       run: |
-        echo "::set-env name=TESTOUTPUT::$(yarn test)"
+        yarn --frozen-lockfile
+        description= yarn test
+        description="${description//'%'/'%25'}"
+        description="${description//$'\n'/'%0A'}"
+        description="${description//$'\r'/'%0D'}"
+        echo "::set-output name=testOutput::$description"
     - name: onFailure
-      run: echo $TESTOUTPUT
+      run: echo "${{steps.jest.outputs.testOutput}}"
