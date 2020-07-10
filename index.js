@@ -1,5 +1,5 @@
 const hello = (val) => {
-  if(val=0){
+  if(val==0){
     return 5;
   } else {
     return 6;
