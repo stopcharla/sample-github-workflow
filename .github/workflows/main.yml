@@ -39,7 +39,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./testResults.json
+        path: ./src/testResults.json
     - name: Echo package.json
       if: failure()
       run: echo ${{ steps.package.outputs.content }}
