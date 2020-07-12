@@ -1,6 +1,6 @@
 const { hello } = require('..')
 
-describe("index test 222222", () => {
+describe("test suite 2", () => {
   test('for zero', () => {
     const res = hello(0);
     expect(res).toEqual(5);
