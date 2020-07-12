@@ -30,8 +30,9 @@ jobs:
     - name: jest
       id: jest
       run: |
+        cd src/
         yarn --frozen-lockfile
-        yarn test --json --outputFile=testResults.json
+        yarn test
       # continue-on-error: true
     - name: onFailure
       if: failure()
