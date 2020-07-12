@@ -25,6 +25,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+        
+    - run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
 
     # Runs a set of commands using the runners shell
     - name: jest
@@ -39,7 +41,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ${{ GITHUB_WORKSPACE }}/src/testResults.json
+        path: ${{ env.workspace }}/src/testResults.json
     - name: Echo package.json
       if: failure()
       run: echo ${{ steps.package.outputs.content }}
