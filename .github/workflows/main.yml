@@ -37,17 +37,17 @@ jobs:
         yarn test
       # continue-on-error: true
     - name: manifest Version
-        uses: deef0000dragon1/json-edit-action/@v1
-        env:
-          KEY: version
-          VALUE: v0.1.1
-          FILE: ${{ env.workspace }}/src/testResults.json
+      uses: deef0000dragon1/json-edit-action/@v1
+      env:
+        KEY: version
+        VALUE: v0.1.1
+        FILE: ${{ env.workspace }}/src/testResults.json
     - name: manifest Version1223
-        uses: deef0000dragon1/json-edit-action/@v1
-        env:
-          KEY: version1223
-          VALUE: v0.1.1
-          FILE: ${{ env.workspace }}/src/testResults.json
+      uses: deef0000dragon1/json-edit-action/@v1
+      env:
+        KEY: version1223
+        VALUE: v0.1.1
+        FILE: ${{ env.workspace }}/src/testResults.json
     - name: onFailure
       if: failure()
       id: package
