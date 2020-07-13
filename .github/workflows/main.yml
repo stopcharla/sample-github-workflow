@@ -37,12 +37,14 @@ jobs:
         yarn test
       # continue-on-error: true
     - name: manifest Version
+      if: failure()
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version
         VALUE: v0.1.1
         FILE: ${{ env.workspace }}/src/testResults.json
     - name: manifest Version1223
+      if: failure()
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version1223
