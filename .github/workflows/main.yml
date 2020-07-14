@@ -29,8 +29,8 @@ jobs:
     - run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
 
     - name: Set outputs
-        id: vars
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      id: vars
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
     # Runs a set of commands using the runners shell
     - name: jest
