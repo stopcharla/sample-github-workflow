@@ -27,6 +27,7 @@ jobs:
         node-version: '10.x'
         
     - run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
+    - run: echo ::set-env name=githubsha::$GITHUB_SHA
 
     # Runs a set of commands using the runners shell
     - name: jest
@@ -48,7 +49,7 @@ jobs:
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version1223
-        VALUE: ${{ env.GITHUB_RUN_ID }}
+        VALUE: ${{ env.githubsha }}
         FILE: ${{ env.workspace }}/src/testResults.json
     - name: onFailure
       if: failure()
