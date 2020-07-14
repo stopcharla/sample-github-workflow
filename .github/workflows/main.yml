@@ -30,7 +30,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: print github sha
-      run: echo ${{ GITHUB_SHA }}
+      run: echo ${ GITHUB_SHA }
     - name: jest
       id: jest
       run: |
