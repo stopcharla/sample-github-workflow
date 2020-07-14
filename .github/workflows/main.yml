@@ -48,7 +48,7 @@ jobs:
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version1223
-        VALUE: $GITHUB_SHA_SHORT
+        VALUE: ${{GITHUB_SHA_SHORT}}
         FILE: ${{ env.workspace }}/src/testResults.json
     - name: onFailure
       if: failure()
