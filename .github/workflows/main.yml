@@ -52,7 +52,7 @@ jobs:
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version1223
-        VALUE: ${{ steps.vars.outputs.sha_short }}
+        VALUE: ${{ env.GITHUB_SHA }}
         FILE: ${{ env.workspace }}/src/testResults.json
     - name: onFailure
       if: failure()
