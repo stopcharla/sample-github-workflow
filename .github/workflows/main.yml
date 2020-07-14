@@ -29,8 +29,6 @@ jobs:
     - run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
 
     # Runs a set of commands using the runners shell
-    - name: print github sha
-      run: echo ${{ GITHUB_SHA }}
     - name: jest
       id: jest
       run: |
