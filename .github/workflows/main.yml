@@ -28,6 +28,10 @@ jobs:
         
     - run: echo ::set-env name=workspace::$GITHUB_WORKSPACE
 
+    - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
     # Runs a set of commands using the runners shell
     - name: jest
       id: jest
@@ -48,7 +52,7 @@ jobs:
       uses: deef0000dragon1/json-edit-action/@v1
       env:
         KEY: version1223
-        VALUE: ${{GITHUB_SHA_SHORT}}
+        VALUE: ${{ steps.vars.outputs.sha_short }}
         FILE: ${{ env.workspace }}/src/testResults.json
     - name: onFailure
       if: failure()
